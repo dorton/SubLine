@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625190046) do
+ActiveRecord::Schema.define(version: 20160625220619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,25 @@ ActiveRecord::Schema.define(version: 20160625190046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "requests", force: :cascade do |t|
+    t.datetime "date"
+    t.boolean  "active",         default: false
+    t.boolean  "direct_request", default: false
+    t.string   "notes"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  create_table "schoolgrades", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "grade_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "schoolgrades", ["grade_id"], name: "index_schoolgrades_on_grade_id", using: :btree
+  add_index "schoolgrades", ["school_id"], name: "index_schoolgrades_on_school_id", using: :btree
 
   create_table "schools", force: :cascade do |t|
     t.string   "name"
@@ -32,6 +51,16 @@ ActiveRecord::Schema.define(version: 20160625190046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "schoolsubjects", force: :cascade do |t|
+    t.integer  "school_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "schoolsubjects", ["school_id"], name: "index_schoolsubjects_on_school_id", using: :btree
+  add_index "schoolsubjects", ["subject_id"], name: "index_schoolsubjects_on_subject_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +77,16 @@ ActiveRecord::Schema.define(version: 20160625190046) do
 
   add_index "usergrades", ["grade_id"], name: "index_usergrades_on_grade_id", using: :btree
   add_index "usergrades", ["user_id"], name: "index_usergrades_on_user_id", using: :btree
+
+  create_table "userrequests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "userrequests", ["request_id"], name: "index_userrequests_on_request_id", using: :btree
+  add_index "userrequests", ["user_id"], name: "index_userrequests_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -93,8 +132,14 @@ ActiveRecord::Schema.define(version: 20160625190046) do
   add_index "usersubjects", ["subject_id"], name: "index_usersubjects_on_subject_id", using: :btree
   add_index "usersubjects", ["user_id"], name: "index_usersubjects_on_user_id", using: :btree
 
+  add_foreign_key "schoolgrades", "grades"
+  add_foreign_key "schoolgrades", "schools"
+  add_foreign_key "schoolsubjects", "schools"
+  add_foreign_key "schoolsubjects", "subjects"
   add_foreign_key "usergrades", "grades"
   add_foreign_key "usergrades", "users"
+  add_foreign_key "userrequests", "requests"
+  add_foreign_key "userrequests", "users"
   add_foreign_key "userschools", "schools"
   add_foreign_key "userschools", "users"
   add_foreign_key "usersubjects", "subjects"

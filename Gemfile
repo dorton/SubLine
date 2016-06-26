@@ -37,6 +37,7 @@ gem 'factory_girl_rails'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'rails-erd'
 
 
 # Use ActiveModel has_secure_password

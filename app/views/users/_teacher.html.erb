@@ -1,1 +1,45 @@
-<h2>Im a Teacher!</h2>
+<h2><%= current_user.name %></h2>
+
+<%= simple_form_for [@user, @user.requests.build], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :date, as: :date, order: [:month, :day, :year] %>
+  <%= f.input :notes %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+<% end %>
+
+
+
+
+<h3>Open Requests</h3>
+
+
+  <table class="table table-bordered table-hover table-sm">
+    <tr>
+      <th>Date Requested</th>
+      <th>Notes</th>
+    </tr>
+<% @requests.where(active: true).each do |request| %>
+    <tr>
+      <td><%= request.date.strftime('%D') %></td>
+      <td><%= request.notes %></td>
+    </tr>
+<% end %>
+  </table>
+
+
+
+
+<h3>Closed Requests</h3>
+
+<table class="table table-bordered table-hover table-sm">
+  <tr>
+    <th>Date Requested</th>
+    <th>Notes</th>
+  </tr>
+  <% @requests.where(active: false).each do |request| %>
+  <tr>
+    <td><%= request.date.strftime('%D') %></td>
+    <td><%= request.notes %></td>
+  </tr>
+  <% end %>
+</table>

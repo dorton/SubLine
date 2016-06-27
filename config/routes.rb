@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'requests/create'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  resources :users
+  resources :users do
+    resources :requests
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

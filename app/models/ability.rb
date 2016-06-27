@@ -9,8 +9,16 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.super_admin?
         can :manage, :all
-      else
-        can :read, :all
+      end
+
+      if user.teacher?
+        can [:read, :update], User, :teacher => true
+        can :manage, Request
+      end
+
+      if user.substitute?
+        can [:read, :update], User, :substitute => true
+        can [:view, :update], Request
       end
     #
     # The first argument to `can` is the action you are giving the user

@@ -1,1 +1,45 @@
-<h2>Imma a Sub!</h2>
+<h2><%= current_user.name %></h2>
+
+<h3>Open Requests</h3>
+
+  <table class="table table-bordered table-hover table-sm">
+    <tr>
+      <th>Date Requested</th>
+      <th>Teacher Requesting</th>
+      <th>School</th>
+      <th>Notes</th>
+    </tr>
+    <% @requests.each do |user| %>
+      <% user.requests.where(active: true).each do |request| %>
+    <tr>
+      <td><%= request.date.strftime('%D') %></td>
+      <% request.users.each do |user| %>
+      <td><%= user.name %></td>
+      <% user.schools.each do |school| %>
+      <td><%= school.name %></td>
+      <% end %>
+      <% end %>
+      <td><%= request.notes %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>
+
+
+
+<h3>Closed Requests</h3>
+
+  <table class="table table-bordered table-hover table-sm">
+    <tr>
+      <th>Date Requested</th>
+      <th>Notes</th>
+    </tr>
+  <% @requests.each do |user| %>
+    <% user.requests.where(active: false).each do |request| %>
+    <tr>
+      <td><%= request.date.strftime('%D') %></td>
+      <td><%= request.notes %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </table>

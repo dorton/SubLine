@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   resources :users do
-    resources :requests
+    resources :requests do
+    end
   end
+
+  match '/users/:user_id/requests/:id/claim', :to => 'requests#claim', :as => 'claim_request', :via => :post
+  match '/users/:user_id/requests/:id/unclaim', :to => 'requests#unclaim', :as => 'unclaim_request', :via => :post
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625220619) do
+ActiveRecord::Schema.define(version: 20160629040459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160625220619) do
     t.string   "notes"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.boolean  "sub_claim",      default: false
   end
 
   create_table "schoolgrades", force: :cascade do |t|

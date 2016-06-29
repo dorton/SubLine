@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     elsif current_user.teacher?
       @user = current_user
       @requests = @user.requests
+      @future_requests = @user.requests.where("date >= ?", Date.today)
 
 
     elsif current_user.substitute?
@@ -19,7 +20,12 @@ class UsersController < ApplicationController
       @sub_schools = @user.schools.map do |school|
         "%#{school.name}%"
       end
-      @requests = User.joins(:requests, :schools).where("schools.name ILIKE ANY ( array[?] )", @sub_schools)
+      @requests = User.where(teacher: true).joins(:requests, :schools).where("schools.name ILIKE ANY ( array[?] )", @sub_schools).uniq
+
+      @claims = current_user.requests.order(date: :ASC)
+
+      @future_requests = @user.requests.where("date >= ?", Date.today)
+
 
 
     elsif current_user.admin?

@@ -1,5 +1,15 @@
 <h2><%= @user.name %> - <%= "Grade".pluralize(@user.grades.count) %> - <% @user.grades.each do |grade|%> <%= grade.name %>   <% end %></h2>
 
+<h3>Create a new request</h3>
+
+<%= simple_form_for [@user, @user.requests.build], :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :date, as: :date, order: [:month, :day, :year]  %>
+  <%= f.input :notes %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+
+  <br>
+
   <h3>Active Requests</h3>
     <table class="table table-striped table-bordered">
       <tr>
@@ -27,9 +37,5 @@
   <% end %>
   </table>
 
-<%= simple_form_for [@user, @user.requests.build], :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :date %>
-  <%= f.input :notes %>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
 <% end %>

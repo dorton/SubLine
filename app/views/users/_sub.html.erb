@@ -1,9 +1,11 @@
+<% unless @open_request_check.any? %>
+  <h2>Hello, <%= @user.name %>! You currently have no pending or assigned jobs.  Please check back at a later date.</h2>
+<% end %>
 
 
+<% if @open_request_check.any? %>
 <h2><%= current_user.name %></h2>
-
 <h3>Open Requests</h3>
-
   <table class="table table-bordered table-hover table-sm">
     <tr>
       <th>id</th>
@@ -15,8 +17,8 @@
       <th>Notes</th>
       <th>Action</th>
     </tr>
-    <% @requests.each do |user| %>
-      <% user.requests.where(active: true, sub_claim: false).each do |request| %>
+      <% @requests.each do |user| %>
+        <% user.requests.where(active: true, sub_claim: false).each do |request| %>
     <tr>
       <td><%= request.id %></td>
       <td><%= request.date.strftime('%D') %></td>
@@ -37,8 +39,12 @@
     </tr>
     <% end %>
   <% end %>
-  </table>
+    </table>
+  <% end %>
 
+
+
+<% if @future_requests.where(active: true, sub_claim: true).any? %>
   <h3>Your Upcoming Assignments</h3>
     <table class="table table-bordered table-hover table-sm">
       <tr>
@@ -72,11 +78,11 @@
       </tr>
   <% end %>
   </table>
+<% end %>
 
 
-
+<% if @claims.where(active: false, sub_claim: true).any? %>
 <h3>Previous Jobs</h3>
-
 <table class="table table-bordered table-hover table-sm">
   <tr>
     <th>Date Requested</th>
@@ -107,3 +113,4 @@
   </tr>
 <% end %>
 </table>
+<% end %>

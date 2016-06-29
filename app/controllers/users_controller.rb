@@ -22,6 +22,14 @@ class UsersController < ApplicationController
       end
       @requests = User.where(teacher: true).joins(:requests, :schools).where("schools.name ILIKE ANY ( array[?] )", @sub_schools).uniq
 
+      @open_request_check = []
+
+      @requests.map do |user|
+         user.requests.where(active: true, sub_claim: false).map do |request|
+           @open_request_check << request
+         end
+       end
+
       @claims = current_user.requests.order(date: :ASC)
 
       @future_requests = @user.requests.where("date >= ?", Date.today)

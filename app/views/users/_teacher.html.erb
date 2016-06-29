@@ -16,7 +16,9 @@
         </div>
     </div>
 </div>
-<% unless @requests.where(active: true).nil? %>
+
+
+<% if @requests.where(active: true).any? %>
   <h3>Requests Waiting to be Filled</h3>
     <table class="table table-bordered table-hover table-sm">
       <tr>
@@ -34,7 +36,7 @@
   </table>
 <% end %>
 
-
+<% if @future_requests.where(active: true, sub_claim: true).any? %>
 <h3>Upcoming Filled Requests</h3>
   <table class="table table-bordered table-hover table-sm">
     <tr>
@@ -52,10 +54,11 @@
     </tr>
 <% end %>
 </table>
+<% end %>
 
 
 
-
+<% if @requests.where(active: false).any? %>
 <h3>Closed Requests</h3>
 
 <table class="table table-bordered table-hover table-sm">
@@ -74,6 +77,7 @@
   </tr>
   <% end %>
 </table>
+<% end %>
 
 <script type="text/javascript">
     $(function () {

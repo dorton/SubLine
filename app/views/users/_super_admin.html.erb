@@ -1,17 +1,19 @@
 <% School.all.each do |school| %>
   <h3><%= school.name %></h3>
-    <table class="table table-striped table-sm table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-      </tr>
-  <% school.users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, user_path(user) %></td>
-        <td><%= mail_to user.email %></td>
-        <td><%= user.role_label %></td>
-      </tr>
-  <% end %>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-striped table-sm table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+        </tr>
+    <% school.users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= mail_to user.email %></td>
+          <td><%= user.role_label %></td>
+        </tr>
+    <% end %>
+      </table>
+    </div>
 <% end %>

@@ -14,7 +14,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-datetimepicker
-//= require turbolinks
 //= require template
 //= require modernizr
 //= require jquery.magnific-popup.min
@@ -26,3 +25,5 @@
 //= require jquery.browser
 //= require SmoothScroll
 //= require jquery.plugin
+//= require jquery-ui
+//= require bootstrap.min

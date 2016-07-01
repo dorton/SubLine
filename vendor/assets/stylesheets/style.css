@@ -23,6 +23,13 @@ File Description:Main CSS file of the template */
 /*Fonts
 ---------------------------------- */
 
+
+.smaller-form {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+
 .center {
   display: flex;
   align-items: center;
@@ -602,6 +609,7 @@ tbody {
   header.full-width .main-navigation.with-dropdown-buttons .navbar-default .navbar-collapse {
     padding-right: 15px;
   }
+
 }
 /* Medium devices (desktops, tablets less than 991px) */
 @media (max-width: 991px) {
@@ -618,6 +626,9 @@ tbody {
     position: absolute;
     top: 22px;
     right: 15px;
+  }
+  .logo .small {
+    display: none;
   }
   /*Transparent Header*/
   .transparent-header .header-left {
@@ -1542,6 +1553,13 @@ h5 + .separator {
 .pv-40 {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+.center-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
 .mt-5 {
   margin-top: 5px;
@@ -6398,7 +6416,13 @@ header.full-width .animated.main-navigation .dropdown-menu .open .dropdown-menu.
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  width: 630px;
+  width: 700px;
+}
+.form-block-sm {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 640px;
 }
 .form-block .social-links {
   display: inline-block;

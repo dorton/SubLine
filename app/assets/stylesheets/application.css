@@ -18,7 +18,7 @@
  *= require custom
  *= require print-invoice
  *= require bootstrap-glyphicons
- *= require bootstrap-theme.min
+ *= require bootstrap-theme
  *= require bootstrap.min
  *= require font-awesome
  *= require fontello
@@ -26,4 +26,5 @@
  *= require animations
  *= require owl.carousel
  *= require owl.transitions
+ *= require jquery-ui
  */

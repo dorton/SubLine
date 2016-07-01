@@ -10,8 +10,20 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
- *= require jquery-ui
  *= require bootstrap-datetimepicker
+ *= require style
+ *= require animate
+ *= require animations
+ *= require custom
+ *= require print-invoice
+ *= require bootstrap-glyphicons
+ *= require bootstrap-theme.min
+ *= require bootstrap.min
+ *= require font-awesome
+ *= require fontello
+ *= require magnific-popup
+ *= require animations
+ *= require owl.carousel
+ *= require owl.transitions
  */

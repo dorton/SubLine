@@ -74,7 +74,7 @@
         <% end %>
         <td><%= request.notes %></td>
         <td><%= "Filled" %></td>
-        <td><%= link_to "Cancel", unclaim_request_path(current_user, request), method: :post, data: {confirm: "You sure?"}, class: "btn btn-warning btn-xs" %></td>
+        <td><%= button_to "Cancel", unclaim_request_path(current_user, request), method: :post, data: {confirm: "You sure?"}, class: "btn btn-warning btn-xs" %></td>
       </tr>
   <% end %>
   </table>

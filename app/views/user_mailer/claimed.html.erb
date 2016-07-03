@@ -1,0 +1,224 @@
+<table bgcolor="#fafafa" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+  <!-- Section Start - Green Box -->
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+    <tr>
+      <td>
+        <table align="center" bgcolor="green" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+          <tr>
+            <td>
+              <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                <!-- Border -->
+                <tr><td bgcolor="#c82727" style="font-size: 0; line-height: 0;" height="1">&nbsp;</td></tr>
+                <!-- Space -->
+                <tr><td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td></tr>
+              </table>
+              <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                <tr>
+                  <td>
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="400" style="border-collapse: collapse;">
+                      <!-- Space -->
+                      <tr><td style="font-size: 0; line-height: 0;" height="3">&nbsp;</td></tr>
+                      <tr>
+                        <td width="100%" align="center" style="font-size: 26px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#ffffff;">
+                          Sub Request Has Been Claimed
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>
+              <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                <!-- Space -->
+                <tr><td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+  </table>
+  <!-- Section End -->
+
+  <!-- Section Start - Claiming Sub -->
+  <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+    <tr>
+      <td>
+        <table bgcolor="#ffffff" width="580" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+          <tr>
+            <td>
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="550" style="border-collapse: collapse;">
+                <!-- Space -->
+                <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+                <tr>
+                  <td width="100%" align="center" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#343434;">
+                    Job Claimed By:
+                  </td>
+                </tr>
+                <!-- Space -->
+                <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+              </table>
+              <!-- First Row -->
+              <table align="center" border="0" cellpadding="0" cellspacing="0" width="550" style="border-collapse: collapse;">
+                <tr>
+                  <td>
+                    <table align="left" border="0" cellpadding="0" width="180" cellspacing="0" style="border-collapse: collapse;">
+                      <tr>
+                        <td>
+                          <%= image_tag "team-member-1.jpg", width: "180", alt: "Team Member 1", style: "display: block;" %>
+                        </td>
+                      </tr>
+                    </table>
+                    <!-- Grid Gutter 20px -->
+                    <table align="left" border="0" cellpadding="0" width="20" cellspacing="0" style="border-collapse: collapse;">
+                      <tr>
+                        <td>&nbsp;</td>
+                      </tr>
+                    </table>
+                    <table align="left" border="0" cellpadding="0" width="350" cellspacing="0" style="border-collapse: collapse;">
+                      <!-- Space -->
+                      <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+                      <tr>
+                        <td style="text-decoration:none; font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #343434; line-height: 26px;">
+                          <%= @substitute.name %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td style="text-decoration:none; font-family: helvetica, Arial, sans-serif; font-size: 12px; color: #999999; line-height: 18px;">
+                          <%= @substitute.schools.map { |school| school.name }.join(", ") %>
+                        </td>
+                      </tr>
+                      <!-- Space -->
+                      <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+                      <tr>
+                        <td style="font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #777777; line-height: 21px;">
+                    <!-- <% sub_arr = [] %> -->
+                    Subjects: <%= @substitute.subjects.map {|subject| subject.name }.join(", ")%>
+                        </td>
+                      </tr>
+                      <!-- Space -->
+                      <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+                      <tr>
+                        <td>
+                          <table width="80" align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                            <tr>
+                              <td style="color: #777777;font-family: helvetica, Arial, sans-serif; font-size:15px;">
+                                email:&nbsp;<%= mail_to @substitute.email, @substitute.email, style: "font-family: helvetica, Arial, sans-serif; font-size: 15px;text-decoration:none; line-height: 14px; color: #c82727;" %>
+                              </td>
+                            </tr>
+                            <!-- Space -->
+                            <tr><td style="font-size: 0; line-height: 0;" height="5">&nbsp;</td></tr>
+
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              <!-- Space -->
+              <table width="550" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+                <tr><td style="font-size: 0; line-height: 0;" bgcolor="#f5f5f5" height="1">&nbsp;</td></tr>
+                <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+  </table>
+  <!-- Section End -->
+
+  <!-- Space -->
+  <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+  <tr>
+    <td width="100%" align="center" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#343434;">
+    </td>
+  </tr>
+  <!-- Space -->
+  <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+</table>
+<!-- Request Details -->
+<table bgcolor="#fafafa" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+  <tr>
+    <td>
+      <!-- first column -->
+      <table align="center" bgcolor="#fafafa" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+        <tr>
+          <td>
+            <table width="250" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 24px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Job Details:
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Date: <%= @request.date.strftime('%B %d, %Y') %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    School: <%= @teacher.schools.map {|e| e.name }.join(", ") %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Teacher: <%= mail_to @teacher.email, @teacher.name %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Subjects: <%= @teacher.subjects.map {|e| e.name }.join(", ") %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Grade(s): <%= @teacher.grades.map {|e| e.name }.join(", ") %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 19px; color: #777777; line-height: 21px; text-align: center;">
+                  Notes: <%= @request.notes %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+
+              <tr>
+                <td>
+                  <table width="550" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                    <tr>
+                      <td align="center" style="color: #777777; font-size: 16px; line-height: 16px; font-weight: normal; text-decoration: none; font-family: helvetica, Arial, sans-serif;">
+                        Please check in at the front office on <%= @request.date.strftime('%B %d, %Y') %> by 7:30am. If for any reason you need to cancel, please log back into <%= link_to "SubLine", root_url %> and cancel the job.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

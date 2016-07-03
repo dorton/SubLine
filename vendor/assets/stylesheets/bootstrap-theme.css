@@ -12,7 +12,7 @@
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
-   color: #fff!important; 
+   color: #fff;
 }
 .btn-default:active,
 .btn-primary:active,
@@ -114,6 +114,8 @@ fieldset[disabled] .btn-default.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #245580;
+  color: #fff !important;
+
 }
 .btn-primary:hover,
 .btn-primary:focus {
@@ -228,7 +230,7 @@ fieldset[disabled] .btn-info.active {
   background-color: #2aabd2;
   background-image: none;
 }
-/*.btn-warning {
+.btn-warning {
   background-image: -webkit-linear-gradient(top, #f0ad4e 0%, #eb9316 100%);
   background-image:      -o-linear-gradient(top, #f0ad4e 0%, #eb9316 100%);
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f0ad4e), to(#eb9316));
@@ -237,6 +239,8 @@ fieldset[disabled] .btn-info.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #e38d13;
+  color: #fff !important;
+
 }
 .btn-warning:hover,
 .btn-warning:focus {
@@ -268,7 +272,7 @@ fieldset[disabled] .btn-warning:active,
 fieldset[disabled] .btn-warning.active {
   background-color: #eb9316;
   background-image: none;
-}*/
+}
 .btn-danger {
   background-image: -webkit-linear-gradient(top, #d9534f 0%, #c12e2a 100%);
   background-image:      -o-linear-gradient(top, #d9534f 0%, #c12e2a 100%);

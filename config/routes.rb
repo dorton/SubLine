@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     end
   end
 
-  match '/users/:user_id/requests/:id/claim', :to => 'requests#claim', :as => 'claim_request', :via => :post
-  match '/users/:user_id/requests/:id/unclaim', :to => 'requests#unclaim', :as => 'unclaim_request', :via => :post
+  match '/users/:user_id/requests/:id/claim', to: 'requests#claim', as: 'claim_request', via: :post
+  match '/users/:user_id/requests/:id/unclaim', to: 'requests#unclaim', as: 'unclaim_request', via: :post
+  match '/unsubscribe', to: 'requests#unsubscribe', as: 'unsubscribe', via: :get
 
 
   # The priority is based upon order of creation: first created -> highest priority.

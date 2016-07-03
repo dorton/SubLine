@@ -4,113 +4,114 @@
 
 
 <% if @open_request_check.any? %>
-<h2><%= current_user.name %></h2>
+<h2 class="text-center"><%= current_user.name %></h2>
 <h3>Open Requests</h3>
-  <table class="table table-bordered table-hover table-sm">
-    <tr>
-      <th>id</th>
-      <th>Date Requested</th>
-      <th>Teacher Requesting</th>
-      <th>School</th>
-      <th>Grade</th>
-      <th>Subject(s)</th>
-      <th>Notes</th>
-      <th>Action</th>
-    </tr>
-      <% @requests.each do |user| %>
-        <% user.requests.where(active: true, sub_claim: false).each do |request| %>
-    <tr>
-      <td><%= request.id %></td>
-      <td><%= request.date.strftime('%D') %></td>
-      <% request.users.each do |user| %>
-      <td><%= user.name %></td>
-      <% user.schools.each do |school| %>
-      <td><%= school.name %></td>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-sm">
+      <tr>
+        <th>Date Requested</th>
+        <th>Teacher Requesting</th>
+        <th>School</th>
+        <th>Grade</th>
+        <th>Subject(s)</th>
+        <th>Notes</th>
+        <th>Action</th>
+      </tr>
+        <% @requests.each do |user| %>
+          <% user.requests.where(active: true, sub_claim: false).each do |request| %>
+      <tr>
+        <td><%= request.date.strftime('%D') %></td>
+        <% request.users.each do |user| %>
+        <td><%= user.name %></td>
+        <% user.schools.each do |school| %>
+        <td><%= school.name %></td>
+        <% end %>
+        <td><% user.grades.each do |grade| %>
+          <%= grade.name %> <br>
+        <% end %></td>
+        <td><% user.subjects.each do |subject| %>
+            <%= subject.name %> <br>
+        <% end %></td>
+        <% end %>
+        <td><%= request.notes %></td>
+        <td><%= link_to "Claim Job",  claim_request_path(current_user, request), class: "btn btn-primary btn-xs", method: :post %></td>
+      </tr>
       <% end %>
-      <td><% user.grades.each do |grade| %>
-        <%= grade.name %> <br>
-      <% end %></td>
-      <td><% user.subjects.each do |subject| %>
-          <%= subject.name %> <br>
-      <% end %></td>
-      <% end %>
-      <td><%= request.notes %></td>
-      <td><%= link_to "Claim Job",  claim_request_path(current_user, request), class: "btn btn-primary btn-xs", method: :post %></td>
-    </tr>
     <% end %>
-  <% end %>
-    </table>
+      </table>
+  </div>
+
   <% end %>
 
 
 
 <% if @future_requests.where(active: true, sub_claim: true).any? %>
   <h3>Your Upcoming Assignments</h3>
-    <table class="table table-bordered table-hover table-sm">
-      <tr>
-        <th>Date Requested</th>
-        <th>Teacher Requesting</th>
-        <th>School</th>
-        <th>Grade(s)</th>
-        <th>Subject(s)</th>
-        <th>Notes</th>
-        <th>Status</th>
-        <th>Action</th>
-      </tr>
-  <% @future_requests.where(active: true, sub_claim: true).each do |request| %>
-      <tr>
-        <td><%= request.date.strftime('%D') %></td>
-        <% request.users.where(teacher: true).each do |user| %>
-          <td><%= user.name %></td>
-          <% user.schools.each do |school| %>
-            <td><%= school.name %></td>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <tr>
+          <th>Date Requested</th>
+          <th>Teacher Requesting</th>
+          <th>School</th>
+          <th>Grade(s)</th>
+          <th>Subject(s)</th>
+          <th>Notes</th>
+          <th>Action</th>
+        </tr>
+    <% @future_requests.where(active: true, sub_claim: true).each do |request| %>
+        <tr>
+          <td><%= request.date.strftime('%D') %></td>
+          <% request.users.where(teacher: true).each do |user| %>
+            <td><%= user.name %></td>
+            <% user.schools.each do |school| %>
+              <td><%= school.name %></td>
+            <% end %>
+            <td><% user.grades.each do |grade| %>
+              <%= grade.name %> <br>
+            <% end %></td>
+            <td><% user.subjects.each do |subject| %>
+              <%= subject.name %> <br>
+            <% end %></td>
           <% end %>
-          <td><% user.grades.each do |grade| %>
-            <%= grade.name %> <br>
-          <% end %></td>
-          <td><% user.subjects.each do |subject| %>
-            <%= subject.name %> <br>
-          <% end %></td>
-        <% end %>
-        <td><%= request.notes %></td>
-        <td><%= "Filled" %></td>
-        <td><%= link_to "Cancel", unclaim_request_path(current_user, request), method: :post, data: {confirm: "You sure?"}, class: "btn btn-warning btn-xs" %></td>
-      </tr>
-  <% end %>
-  </table>
+          <td><%= request.notes %></td>
+          <td><%= button_to "Cancel", unclaim_request_path(current_user, request), method: :post, data: {confirm: "You sure?"}, class: "btn btn-warning btn-xs" %></td>
+        </tr>
+    <% end %>
+    </table>
+    </div>
 <% end %>
 
 
 <% if @claims.where(active: false, sub_claim: true).any? %>
 <h3>Previous Jobs</h3>
-<table class="table table-bordered table-hover table-sm">
-  <tr>
-    <th>Date Requested</th>
-    <th>Teacher Requesting</th>
-    <th>School</th>
-    <th>Grade(s)</th>
-    <th>Subject(s)</th>
-    <th>Notes</th>
-    <th>Status</th>
-  </tr>
-<% @claims.where(active: false, sub_claim: true).each do |request| %>
-  <tr>
-    <td><%= request.date.strftime('%D') %></td>
-    <% request.users.where(teacher: true).each do |user| %>
-      <td><%= user.name %></td>
-      <% user.schools.each do |school| %>
-        <td><%= school.name %></td>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-sm">
+        <tr>
+          <th>Date Requested</th>
+          <th>Teacher Requesting</th>
+          <th>School</th>
+          <th>Grade(s)</th>
+          <th>Subject(s)</th>
+          <th>Notes</th>
+        </tr>
+      <% @claims.where(active: false, sub_claim: true).each do |request| %>
+        <tr>
+          <td><%= request.date.strftime('%D') %></td>
+          <% request.users.where(teacher: true).each do |user| %>
+            <td><%= user.name %></td>
+            <% user.schools.each do |school| %>
+              <td><%= school.name %></td>
+            <% end %>
+            <td><% user.grades.each do |grade| %>
+              <%= grade.name %> <br>
+            <% end %></td>
+            <td><% user.subjects.each do |subject| %>
+              <%= subject.name %> <br>
+            <% end %></td>
+          <% end %>
+          <td><%= request.notes %></td>
+        </tr>
       <% end %>
-      <td><% user.grades.each do |grade| %>
-        <%= grade.name %> <br>
-      <% end %></td>
-      <td><% user.subjects.each do |subject| %>
-        <%= subject.name %> <br>
-      <% end %></td>
-    <% end %>
-    <td><%= request.notes %></td>
-    <td><%= "Completed" %></td>
-  </tr>
-<% end %>
-</table>
+      </table>
+    </div>
 <% end %>

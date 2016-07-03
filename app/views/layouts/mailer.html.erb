@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>SubLine Email</title>
+	</head>
+	<body style="margin: 0; padding: 0;">
+
+
+					<!-- Header Start -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+						<tr>
+							<td style="padding:15px 0 0 0;">
+								<table align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+									<tr>
+										<td>
+											<table align="left" border="0" cellpadding="0" cellspacing="0" width="200" style="border-collapse: collapse;">
+												<!-- logo -->
+												<tr>
+													<td align="left">
+														<%= link_to root_url do %>
+                              <%= image_tag 'logo.png', style: "display: block;" %>
+                            <% end %>
+													</td>
+												</tr>
+												<!-- company slogan -->
+
+												<!-- Space -->
+												<tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+											</table>
+
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+					<!-- Header End -->
+
+					<!-- Section Start -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+						<tr>
+							<td>
+								<%= yield %>
+							</td>
+						</tr>
+					</table>
+					<!-- Section End -->
+
+
+					<!-- Subfooter Start -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+						<tr>
+							<td>
+								<table bgcolor="#f5f5f5" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+									<tr>
+										<td>
+											<!-- Space -->
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+												<tr><td style="font-size: 0; line-height: 0;" bgcolor="#eaeaea" height="1">&nbsp;</td></tr>
+												<tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+											</table>
+											<table align="center" border="0" cellpadding="0" cellspacing="0" width="540" style="border-collapse: collapse;">
+												<tr>
+													<td align="center" style="color: #999999; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif;">
+														All Rights Reserved / <%= link_to "Unsubscribe", unsubscribe_url, style: "color: #c82727; font-size: 14px; line-height: 18px; font-weight: normal; font-family: helvetica, Arial, sans-serif; text-decoration:none;" %>
+													</td>
+												</tr>
+											</table>
+											<!-- Space -->
+											<table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+												<tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+
+					</table>
+					<!-- Subfooter End -->
+
+
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

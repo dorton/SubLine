@@ -1,59 +1,75 @@
 <!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "SubLine" %></title>
-    <%= csrf_meta_tags %>
+	<!--<![endif]-->
 
-    <%= stylesheet_link_tag "application", :media => "all" %>
+	<head>
+		<meta charset="utf-8">
+		<title>SubLine | Teacher Substitute Management System</title>
+		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
+		<meta name="author" content="htmlcoder.me">
 
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <!-- Size should be 144 x 144 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- For iPhone with high-resolution Retina display: -->
-    <!-- Size should be 114 x 114 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="images/favicon.ico">
 
-    <!-- For first- and second-generation iPad: -->
-    <!-- Size should be 72 x 72 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+		<%= stylesheet_link_tag "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
 
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <!-- Size should be 57 x 57 pixels -->
-    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+		<%= csrf_meta_tags %>
 
-    <!-- For all other devices -->
-    <!-- Size should be 32 x 32 pixels -->
-    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
-    <%= javascript_include_tag "application" %>
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
+	</head>
 
-    <div class="navbar navbar-default navbar-static-top">
+	<!-- body classes:  -->
+	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+	<!-- "gradient-background-header": applies gradient background to header -->
+	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class="no-trans front-page ">
+
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+	<% if signed_in? %>
+		<div class="navbar navbar-default navbar-static-top">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "SubLine", root_path, class: "navbar-brand" %>
+
+			<div class="navbar-brand">
+				<div id="logo" class="logo">
+					<h3 class="margin-clear">
+						<%= link_to root_path, class: 'logo-font' do %>
+								Sub<span class="text-default">Line</span>
+								<p class="small text-center">Teacher/Substitute Management System</p>
+						<% end %>
+					</h3>
+				</div>
+			</div>
+
+
+
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in?  %>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Account", edit_user_path(current_user) %></li>
-                <li role="separator" class="divider"></li>
                 <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete  %></li>
               </ul>
             </li>
@@ -62,15 +78,61 @@
         </div>
       </div>
     </div>
+	<% end %>
 
-    <div class="container">
-      <div class="row">
-        <div>
-          <%= bootstrap_flash %>
-          <div><%= yield %></div>
-        </div>
-      </div><!--/row-->
-    </div> <!-- /container -->
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
 
-  </body>
+			<!-- header-container end -->
+
+
+			<!-- background image -->
+			<!-- <div class="fullscreen-bg"></div> -->
+			<%= image_tag "fullscreen-bg.jpg", class:"fullscreen-bg" %>
+
+
+
+			<!-- banner start -->
+			<!-- ================ -->
+			<% if signed_in? %>
+			<div class="pv-40 dark-translucent-bg">
+				<% else %>
+			<div class="center-login">
+			<% end %>
+				<div class="container">
+					<div class="object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="100">
+						<!-- logo -->
+						<!-- <% if signed_in? %>
+						<div id="logo" class="logo">
+							<h3 class="margin-clear text-center">
+								<%= link_to root_path, class: 'logo-font link-light' do %>
+										Sub<span class="text-default">Line</span>
+							</h3>
+						</div>
+						<% end %> -->
+						<!-- name-and-slogan -->
+						<!-- <p class="small text-center">Teacher/Substitute Management System</p> -->
+						<!-- <% end %> -->
+							<div class="form-block center-block p-30 light-gray-bg border-clear">
+
+
+							<%= yield %>
+
+						</div>
+						<!-- .subfooter start -->
+						<!-- ================ -->
+						<!-- .subfooter end -->
+					</div>
+				</div>
+			</div>
+			<!-- banner end -->
+
+
+
+		</div>
+		<!-- page-wrapper end -->
+
+
+	</body>
 </html>

@@ -1,0 +1,201 @@
+<table bgcolor="#fafafa" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+  <!-- Space -->
+  <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+  <tr>
+    <td width="100%" align="center" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#343434;">
+      The Sub Request is at <strong><%= @teacher.schools.map {|school| school.name }.first %></strong>
+    </td>
+  </tr>
+  <!-- Space -->
+  <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+</table>
+<!-- First Row -->
+<table bgcolor="#fafafa" align="center" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+  <tr>
+    <td>
+      <!-- first column -->
+      <table align="center" bgcolor="#fafafa" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+        <tr>
+          <td>
+            <table width="250" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #333333; line-height: 24px; text-decoration: none;" align="center">
+                    Date: <%= @request.date.strftime('%B %d, %Y') %>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+              <tr>
+                <td style="font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #777777; line-height: 21px; text-align: center;">
+                  Notes: <%= @request.notes %>
+                </td>
+              </tr>
+
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+              <tr>
+                <td>
+                  <table width="550" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                    <tr>
+                      <td align="center" style="color: #777777; font-size: 12px; line-height: 15px; font-weight: normal; text-decoration: none; font-family: helvetica, Arial, sans-serif;">
+                        Claim the job by clicking the link below and logging into your account. You will see the above sub request. If the job is still available, you may claim it by clicking the yellow "Claim" button.
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<!-- Section Start - Red Box -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+  <tr>
+    <td>
+      <table align="center" bgcolor="#c82727" border="0" cellpadding="0" cellspacing="0" width="580" style="border-collapse: collapse;">
+        <tr>
+          <td>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <!-- Border -->
+              <tr><td bgcolor="#c82727" style="font-size: 0; line-height: 0;" height="1">&nbsp;</td></tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td></tr>
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <tr>
+                <td>
+                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="400" style="border-collapse: collapse;">
+                    <!-- Space -->
+                    <tr><td style="font-size: 0; line-height: 0;" height="3">&nbsp;</td></tr>
+                    <tr>
+                      <td width="100%" align="center" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#ffffff;">
+                        Claim Job Now
+                      </td>
+                    </tr>
+                  </table>
+                  <table align="left" border="0" cellpadding="0" cellspacing="0" width="140" style="border-collapse: collapse;">
+                    <!-- Space -->
+                    <tr><td style="font-size: 0; line-height: 0;" height="0">&nbsp;</td></tr>
+                    <tr>
+                      <td width="100%" align="center" style="padding:12px 12px 12px 12px; text-align: center;border-radius:4px;" bgcolor="#f1f1f1">
+                        <%= link_to "Claim", root_url, style: "color: #000000; font-size: 16px; font-weight: normal; text-decoration: none; font-family: helvetica, Arial, sans-serif;" %>
+                        <!-- <a href="#" style="color: #000000; font-size: 16px; font-weight: normal; text-decoration: none; font-family: helvetica, Arial, sans-serif;">Purchase</a> -->
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <table width="100%" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="30">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+<!-- Section End -->
+
+<!-- Section Start - Requesting Teacher -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+  <tr>
+    <td>
+      <table bgcolor="#ffffff" width="580" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+        <tr>
+          <td>
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="550" style="border-collapse: collapse;">
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+              <tr>
+                <td width="100%" align="center" style="font-size: 28px; line-height: 34px; font-family:helvetica, Arial, sans-serif; color:#343434;">
+                  Requesting <strong>Teacher</strong>
+                </td>
+              </tr>
+              <!-- Space -->
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+            </table>
+            <!-- First Row -->
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="550" style="border-collapse: collapse;">
+              <tr>
+                <td>
+                  <table align="left" border="0" cellpadding="0" width="180" cellspacing="0" style="border-collapse: collapse;">
+                    <tr>
+                      <td>
+                        <%= image_tag "team-member-1.jpg", width: "180", alt: "Team Member 1", style: "display: block;" %>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Grid Gutter 20px -->
+                  <table align="left" border="0" cellpadding="0" width="20" cellspacing="0" style="border-collapse: collapse;">
+                    <tr>
+                      <td>&nbsp;</td>
+                    </tr>
+                  </table>
+                  <table align="left" border="0" cellpadding="0" width="350" cellspacing="0" style="border-collapse: collapse;">
+                    <!-- Space -->
+                    <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+                    <tr>
+                      <td style="text-decoration:none; font-family: helvetica, Arial, sans-serif; font-size: 22px; color: #343434; line-height: 26px;">
+                        <%= @teacher.name %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="text-decoration:none; font-family: helvetica, Arial, sans-serif; font-size: 12px; color: #999999; line-height: 18px;">
+                        <% @teacher.schools.each do |school| %>
+                          <%= school.name %>
+                        <% end %>
+                      </td>
+                    </tr>
+                    <!-- Space -->
+                    <tr><td style="font-size: 0; line-height: 0;" height="15">&nbsp;</td></tr>
+                    <tr>
+                      <td style="font-family: helvetica, Arial, sans-serif; font-size: 14px; color: #777777; line-height: 21px;">
+                  <!-- <% sub_arr = [] %> -->
+                  Subjects: <%= @teacher.subjects.map {|subject| subject.name }.join(", ")%>
+                      </td>
+                    </tr>
+                    <!-- Space -->
+                    <tr><td style="font-size: 0; line-height: 0;" height="10">&nbsp;</td></tr>
+                    <tr>
+                      <td>
+                        <table width="80" align="left" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+                          <tr>
+                            <td style="color: #777777;font-family: helvetica, Arial, sans-serif; font-size:15px;">
+                              email:&nbsp;<%= mail_to @teacher.email, @teacher.email, style: "font-family: helvetica, Arial, sans-serif; font-size: 15px;text-decoration:none; line-height: 14px; color: #c82727;" %>
+                            </td>
+                          </tr>
+                          <!-- Space -->
+                          <tr><td style="font-size: 0; line-height: 0;" height="5">&nbsp;</td></tr>
+
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <!-- Space -->
+            <table width="550" align="center" border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+              <tr><td style="font-size: 0; line-height: 0;" bgcolor="#f5f5f5" height="1">&nbsp;</td></tr>
+              <tr><td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td></tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+<!-- Section End -->
